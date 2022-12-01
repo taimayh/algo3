@@ -1,0 +1,52 @@
+PROCEDURE dot_product(v1,v2:ARRAY_OF integer, var pc:integer)
+VAR
+
+    i:integer;
+    
+BEGIN
+FOR i FROM 0 TO v1.length  DO
+    pc:= pc + (v1[i] * v2[i])
+END_FOR
+   
+END
+FUNCTION dot_product(v1,v2: ARRAY_OF integer) : integer;
+VAR
+    i:integer;
+    pc:integer;
+BEGIN
+    pc:=0;
+    FOR i FROM 0 TO v1.length  DO
+    pc:= pc + (v1[i] * v2[i])
+END_FOR
+    RETURN pc ;
+END
+ALGORITHM  Dot product
+VAR
+    n,i:integer;
+v1,v2: ARRAY_OF integer;
+   pc:integer;
+BEGIN
+    pc:=0;
+    read(n)
+    FOR i FROM 0 TO n STEP step  DO
+        
+        read(v1);
+        read(v2);
+
+IF (v1.lenghth <> v2.length) THEN
+    write("n'est sont pas de meme taille");
+ELSE
+    // dot_product(v1,v2,pc)
+    pc:= dot_product(v1,v2);
+    IF (pc = 0 ) THEN
+        write(" v1 et v2 sont orthogono");
+    ELSE
+                write(" v1 et v2  ne sont pas orthogono");
+
+    END_IF
+END_IF
+
+    END_FOR
+
+
+END
